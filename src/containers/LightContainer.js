@@ -5,6 +5,12 @@ const mapStateToProps = state => ({
   light: state
 });
 
-const LightComponent = ({ light }) => <div>{light}</div>;
+const switchAction= { type: 'SWITCH' };
+
+const LightComponent = ({ light, dispatch }) => (
+    <div>
+        <p>{light}</p>
+        <button onClick={ ()=> dispatch(switchAction)}>Switch</button>
+    </div>);
 
 export default connect(mapStateToProps)(LightComponent);
